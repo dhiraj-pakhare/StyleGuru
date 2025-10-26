@@ -68,17 +68,21 @@ StyleGuru/
    cd StyleGuru
 
 2. **Install dependencies**
+   ```bash
    npm install
 
 3. **Start frontend**
-  cd styleguru-frontend
-  npm start
 
-4. **Start backend**
-    cd styleguru-backend
+   ```bash
+   cd styleguru-frontend
+   npm start
+
+5. **Start backend**
+    ```bash
+   cd styleguru-backend
     node server.js
 
-5. **Deploy on Firebase**
+6. **Deploy on Firebase**
   firebase deploy
 
 
@@ -94,10 +98,11 @@ StyleGuru/
 
 
 
+
 🧑‍🎨 **Author**
 
 Dhiraj Pakhare
 📍 Pune, Maharashtra, India
-📧 dhirajpakhare18@gmail.com
 
+📧 dhirajpakhare18@gmail.com
 🔗 LinkedIn : https://www.linkedin.com/in/dhiraj-pakhare/
