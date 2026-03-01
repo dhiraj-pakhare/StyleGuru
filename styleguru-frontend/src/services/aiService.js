@@ -24,31 +24,31 @@ async function handleApiResponse(responsePromise) {
 }
 
 export const getAIOutfitSuggestions = async (profile) => {
-  return handleApiResponse(postRequest('outfit-suggestions', profile));
+  return handleApiResponse(postRequest('/outfit-suggestions', profile));
 };
 
 export const getAIEyewearRecommendations = async (profile) => {
-    return handleApiResponse(postRequest('eyewear-recommendations', profile));
+    return handleApiResponse(postRequest('/eyewear-recommendations', profile));
 }
 
 export const getAIAccessoriesSuggestions = async (profile) => {
-    return handleApiResponse(postRequest('accessories-suggestions', profile));
+    return handleApiResponse(postRequest('/accessories-suggestions', profile));
 };
 
 export const getAIDietPlan = async (profile) => {
-    return handleApiResponse(postRequest('diet-plan', profile));
+    return handleApiResponse(postRequest('/diet-plan', profile));
 }
 
 export const getAICareRoutine = async (profile) => {
-    return handleApiResponse(postRequest('care-routine', profile));
+    return handleApiResponse(postRequest('/care-routine', profile));
 };
 
 export const getAIProductSuggestions = async (profile, productType) => {
-    return handleApiResponse(postRequest('product-suggestions', { profile, productType }));
+    return handleApiResponse(postRequest('/product-suggestions', { profile, productType }));
 };
 
 export const getAIWorkoutPlan = async (profile) => {
-    return handleApiResponse(postRequest('workout-plan', profile));
+    return handleApiResponse(postRequest('/workout-plan', profile));
 };
 
 // The old mock service code has been migrated to the styleguru-backend.

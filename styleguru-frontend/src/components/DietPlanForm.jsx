@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 const dietGoals = ["Weight Loss", "Muscle Gain", "Balanced Diet", "Heart Health"];
-const dietRestrictions = ["None", "Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free"];
+const dietRestrictions = ["None", "Vegetarian", "Vegan", "Keto", "Gluten-Free", "Dairy-Free", "Non-Vegetarian"];
 
 export default function DietPlanForm({ open, onClose, onSubmit }) {
   const [goal, setGoal] = useState('');
@@ -20,7 +20,7 @@ export default function DietPlanForm({ open, onClose, onSubmit }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 30 }}
@@ -51,7 +51,7 @@ export default function DietPlanForm({ open, onClose, onSubmit }) {
               </div>
               <div>
                 <label htmlFor="restrictions" className="block text-lg font-semibold mb-3">Any dietary restrictions?</label>
-                <select 
+                <select
                   name="restrictions"
                   id="restrictions"
                   value={restrictions}
@@ -64,7 +64,7 @@ export default function DietPlanForm({ open, onClose, onSubmit }) {
                 </select>
               </div>
             </div>
-            
+
             <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex justify-end">
               <button type="submit" disabled={!goal} className="px-8 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition disabled:opacity-50 disabled:cursor-not-allowed">
                 Generate My Diet Plan

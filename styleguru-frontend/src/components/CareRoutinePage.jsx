@@ -153,7 +153,17 @@ export default function CareRoutinePage() {
         .then(res => {
           clearTimeout(timeoutId);
           if (res && res.skinRoutine && res.hairRoutine) {
-            setData(res);
+            // Normalize data structure - backend returns strings, frontend expects objects
+            const normalizedData = {
+              skinRoutine: typeof res.skinRoutine === 'string' 
+                ? { title: "Skin Care Routine", description: res.skinRoutine, icon: "🧖‍♀️" }
+                : res.skinRoutine,
+              hairRoutine: typeof res.hairRoutine === 'string'
+                ? { title: "Hair Care Routine", description: res.hairRoutine, icon: "💇‍♀️" }
+                : res.hairRoutine,
+              careTip: res.careTip
+            };
+            setData(normalizedData);
           } else {
             // API returned null or empty data, use fallback
             console.log("API returned null or empty data, using fallback");
@@ -219,7 +229,7 @@ export default function CareRoutinePage() {
 
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="bg-pink-50 dark:bg-gray-800 p-6 rounded-2xl mt-8 shadow-lg border border-pink-200 dark:border-gray-700">
               <h3 className="text-xl font-bold text-pink-700 dark:text-pink-300 mb-2">✨ Pro Tip</h3>
-              <p className="text-pink-800 dark:text-pink-200">{data.careTip}</p>
+              <p className="text-pink-800 dark:text-pink-200">{(data || realCareRoutineData)?.careTip || "Consistency is key! Stick to your routine for at least a few weeks to see results, and always remember to wear sunscreen daily!"}</p>
             </motion.div>
           </motion.div>
         )

@@ -13,6 +13,7 @@ import CareRoutinePage from './components/CareRoutinePage';
 import WorkoutPlanPage from './components/WorkoutPlanPage';
 import OutfitSuggestionsPage from './components/OutfitSuggestionsPage';
 import AccessoriesPage from './components/AccessoriesPage';
+import ARVirtualTryOn from './components/ARVirtualTryOn';
 
 function App() {
   const [aiChatOpen, setAiChatOpen] = useState(false);
@@ -38,6 +39,7 @@ function App() {
             <Route path="/workout-plan" element={<WorkoutPlanPage />} />
             <Route path="/outfit-suggestions" element={<OutfitSuggestionsPage />} />
             <Route path="/accessories-suggestions" element={<AccessoriesPage />} />
+            <Route path="/virtual-try-on" element={<ARVirtualTryOn />} />
           </Routes>
         </main>
         <Footer />

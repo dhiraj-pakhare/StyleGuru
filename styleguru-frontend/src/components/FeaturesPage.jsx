@@ -33,6 +33,11 @@ export default function FeaturesPage() {
   const handleAccessoriesSubmit = (data) => handleFormSubmit('/accessories-suggestions', data);
 
   const openFeatureFlow = (feature) => {
+    // AR Virtual Try-on goes directly to its page (no gender needed)
+    if (feature.key === 'ar') {
+      navigate('/virtual-try-on');
+      return;
+    }
     setSelectedFeature(feature.key);
     setGenderModalOpen(true);
   };
@@ -62,7 +67,7 @@ export default function FeaturesPage() {
       />
 
       {/* Forms will now be controlled by `activeForm` state */}
-      <StyleProfileForm 
+      <StyleProfileForm
         open={activeForm === 'outfit'}
         onClose={closeForm}
         onSubmit={handleOutfitSubmit}
@@ -72,7 +77,7 @@ export default function FeaturesPage() {
         onClose={closeForm}
         onSubmit={handleEyewearSubmit}
       />
-      <DietPlanForm 
+      <DietPlanForm
         open={activeForm === 'diet'}
         onClose={closeForm}
         onSubmit={handleDietSubmit}

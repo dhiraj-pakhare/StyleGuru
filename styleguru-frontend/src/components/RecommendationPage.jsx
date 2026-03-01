@@ -27,8 +27,16 @@ export default function RecommendationPage() {
     if (profile) {
       setLoading(true);
       getAIOutfitSuggestions(profile)
-        .then(res => setRecommendations(res))
-        .catch(err => console.error(err))
+        .then(res => {
+          if (res) {
+            setRecommendations(res);
+          } else {
+            console.error('Failed to get recommendations');
+          }
+        })
+        .catch(err => {
+          console.error('Error fetching recommendations:', err);
+        })
         .finally(() => setLoading(false));
     }
   }, [location.state]);
@@ -73,7 +81,7 @@ export default function RecommendationPage() {
                   {outfit.pieces.map((piece, pieceIndex) => (
                     <ProductCard
                       key={pieceIndex}
-                      product={{ ...piece, name: piece.itemName, description: `A key piece for this look. (${piece.category})` }}
+                      product={{ ...piece, name: piece.name || piece.itemName, description: `A key piece for this look. (${piece.category})` }}
                     />
                   ))}
                 </div>
